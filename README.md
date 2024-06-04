@@ -52,5 +52,5 @@ Con Digit, los usuarios pueden disfrutar de una asistencia inteligente y adaptat
 
 
 <p align="center">
-  <img src="img/01-AIwereable.webp">
+  <img src="img/02-AIwereable.webp">
 </p>
