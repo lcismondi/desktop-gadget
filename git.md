@@ -26,6 +26,13 @@ Descargar la rama y fusionarla directamente
 git pull origin nombre-de-la-rama
 ```
 
+Cambiar el nombre de la rama local
+```
+git branch
+git branch -m new-branch
+
+```
+
 Gestionar nuevas versiones
 ```
 git status
