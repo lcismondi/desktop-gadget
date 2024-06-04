@@ -11,6 +11,7 @@
 * Sensor de gestos
 * Desktop tap-tap wakeup
 * USB HIM
+* Sonido ambiente estéreo
 
 <p align="center">
   <a href="img\02-Handnotes.webp"  target="_blank"><img src="img\02-Handnotes2.webp"></a>
