@@ -29,7 +29,8 @@ git pull origin nombre-de-la-rama
 Cambiar el nombre de la rama local
 ```
 git branch
-git branch -m new-branch
+git branch -m <new-branch>
+git push --set-upstream origin 
 
 ```
 
