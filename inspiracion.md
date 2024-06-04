@@ -1,3 +1,9 @@
+# Hand notes
+
+<p align="center">
+  <a href="img\01-Handnotes.webp"  target="_blank"><img src="img\01-Handnotes2.webp"></a>
+</p>
+
 # Interacción
 * Webapp
 * Botones mecanicos
@@ -5,6 +11,10 @@
 * Sensor de gestos
 * Desktop tap-tap wakeup
 * USB HIM
+
+<p align="center">
+  <a href="img\02-Handnotes.webp"  target="_blank"><img src="img\02-Handnotes2.webp"></a>
+</p>
 
 # Inspiraciones
 * [TickMeter](https://tickrmeter.com/)
@@ -24,3 +34,9 @@
 * [Contador mecánico](https://youtu.be/XlvfNOIMiVw)
 * [Calendar](https://makerworld.com/en/models/115260)
 * [CTRL-01](https://www.instagram.com/p/C3DRH1LKLF-/)
+
+
+<p align="center">
+  <br/>
+  <a href="img\03-Handnotes.webp" target="_blank"><img src="img\03-Handnotes2.webp"></a>
+</p>
