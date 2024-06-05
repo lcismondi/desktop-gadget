@@ -37,6 +37,10 @@
 * [Contador mecánico](https://youtu.be/XlvfNOIMiVw)
 * [Calendar](https://makerworld.com/en/models/115260)
 * [CTRL-01](https://www.instagram.com/p/C3DRH1LKLF-/)
+* [Amida](https://www.instagram.com/amida_watches)
+* [Pixly](https://www.kickstarter.com/projects/edifyrobotics/pixly-six-retro-vibes-one-high-tech-ride)
+* [Gokux](https://www.instructables.com/Tiny-LiDAR-Laser-Range-Finder/)
+
 
 
 <p align="center">

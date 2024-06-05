@@ -29,6 +29,7 @@ Este enfoque progresivo asegura que cada nueva función se implemente con el má
 * Seguimiento de partidos, resultados deportivos
 * Mascota Tamagochi
 * USB a la pc para HMI
+* Luces RGB
 * ...
 
 Para más detalles de funcionalidades puedes ver en dónde [nos inspiramos](inspiracion.md).
