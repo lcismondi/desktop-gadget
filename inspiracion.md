@@ -12,8 +12,10 @@
 * Desktop tap-tap wakeup
 * USB HIM
 * Sonido ambiente estéreo
+* Anillo luz RGB
 
 <p align="center">
+  <br/>
   <a href="img\02-Handnotes.webp"  target="_blank"><img src="img\02-Handnotes2.webp"></a>
 </p>
 

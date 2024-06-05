@@ -41,6 +41,7 @@ Con Digit, los usuarios pueden disfrutar de una asistencia inteligente y adaptat
 
 
 ## Route map
+Cada versión representa un hito clave en la evolución del producto, desde el diseño conceptual hasta la integración avanzada de inteligencia artificial y más allá.
 * V0: Diseño conceptual (MVP)
 * V1: Presentación como producto
 * V2: API
@@ -49,8 +50,30 @@ Con Digit, los usuarios pueden disfrutar de una asistencia inteligente y adaptat
 * V5: Her
 
 ## Comunidad
+¡Te invitamos a formar parte de la evolución de Digit! Nuestra visión es crear una plataforma abierta y colaborativa donde desarrolladores y entusiastas de la tecnología puedan contribuir, innovar y mejorar constantemente el dispositivo y su firmware. Hay muchas maneras en las que puedes participar:
 
+### ¿Cómo puedes contribuir?
+#### Desarrolla y Comparte Firmware
+
+* Crea tu propio firmware para Digit y compártelo con la comunidad.
+* Mejora el firmware existente, añade nuevas funcionalidades o optimiza las actuales.
+
+#### Reporta Problemas y Sugerencias
+
+* Ayúdanos a identificar y solucionar problemas abriendo issues en el repositorio.
+* Proporciona sugerencias sobre nuevas características o mejoras que te gustaría ver en Digit.
+
+#### Participa en el desarrollo de las nuevas versiones y funcionalidades
+
+* Contribuye al desarrollo y mejora de nuestra versión, asegurando que sea robusta y versátil para todos los usuarios.
+* Proporciona feedback y colaboraciones en la documentación para que sea accesible y fácil de usar.
+
+#### Colabora en Proyectos de la Comunidad:
+
+* Únete a proyectos colaborativos dentro de la comunidad de Digit.
+* Comparte tus conocimientos y aprende de otros desarrolladores apasionados.
 
 <p align="center">
+  <br/>
   <img src="img/02-AIwereable.webp">
 </p>
