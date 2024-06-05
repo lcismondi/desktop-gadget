@@ -30,6 +30,7 @@ Este enfoque progresivo asegura que cada nueva función se implemente con el má
 * Mascota Tamagochi
 * USB a la pc para HMI
 * ...
+
 Para más detalles de funcionalidades puedes ver en dónde [nos inspiramos](inspiracion.md).
 
 
@@ -49,7 +50,8 @@ Cada versión representa un hito clave en la evolución del producto, desde el d
 * V3: OS
 * V4: IA
 * V5: Her
-Para más detalles de cada etapa puedes [ver la wiki](../wiki/Route-map).
+
+Para más detalles de cada etapa puedes [ver la wiki](https://github.com/lcismondi/desktop-gadget/wiki/Route-map).
 
 ## Comunidad
 ¡Te invitamos a formar parte de la evolución de Digit! Nuestra visión es crear una plataforma abierta y colaborativa donde desarrolladores y entusiastas de la tecnología puedan contribuir, innovar y mejorar constantemente el dispositivo y su firmware. Hay muchas maneras en las que puedes participar:
