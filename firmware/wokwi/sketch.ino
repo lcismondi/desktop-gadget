@@ -17,12 +17,13 @@ bool flagPress = LOW;        //Flag de presión de botón
 bool flagRelease = LOW;      //Flag de liberación de botón
 bool flagLongpress = LOW;    //Flag de presión larga
 bool activeLongpress = LOW;  //Flag de activación presión larga
+bool btnState = HIGH;        //LOW is pressed
+bool currentStateCLK, currentStateDT;
+bool lastStateCLK;
+bool lastStateBTN = HIGH;
+bool lastStateDT;
 
-int counter = 0;
-int currentStateCLK, currentStateDT;
-int lastStateCLK;
-int lastStateBTN = HIGH;
-int lastStateDT;
+int counter, counter2 = 0;
 
 String currentDir = "";
 
@@ -45,7 +46,7 @@ void setup() {
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
-  display.setCursor(0, 0);
+  display.setCursor(SCREEN_WIDTH/3, SCREEN_HEIGHT/2);
   display.print("Digit");
   display.display();
 
@@ -93,34 +94,33 @@ void loop() {
 
     if (currentStateDT == LOW && currentStateDT != lastStateDT) {
 
+      //Scroll con presión
+      if(btnState == LOW){
+      counter2++;
+      alapantalla("CW",counter2);
+      countLongPress = millis();
+      }
+      //Scroll simple
+      else{
       counter++;
-      currentDir = "CW";
-      flagCLK = LOW;
-      Serial.print("Direction: ");
-      Serial.print(currentDir);
-      Serial.print(" | Counter: ");
-      Serial.println(counter);
+      alapantalla("CW",counter);
+      }
 
-      display.clearDisplay();
-      display.setCursor(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-      display.print(counter);
-      display.display();
+      
 
     } else if (currentStateDT == HIGH && currentStateDT != lastStateDT) {
 
+      //Scroll con presión
+      if(btnState == LOW){
+      counter2--;
+      alapantalla("CCW",counter2);
+      countLongPress = millis();
+      }
+      //Scroll simple
+      else{
       counter--;
-      currentDir = "CCW";
-      flagCLK = LOW;
-      Serial.print("Direction: ");
-      Serial.print(currentDir);
-      Serial.print(" | Counter: ");
-      Serial.println(counter);
-
-      display.clearDisplay();
-      display.setCursor(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-      display.print(counter);
-      display.display();
-
+      alapantalla("CCW",counter);
+      }
     }
 
     //lastStateDT = currentStateDT;
@@ -134,7 +134,7 @@ void loop() {
   //**********************************************************************
 
   // Read the button state
-  int btnState = digitalRead(SW);
+  btnState = digitalRead(SW);
 
   //If we detect LOW signal, button is pressed
   if (btnState == LOW && lastStateBTN == HIGH) {
@@ -173,7 +173,7 @@ void loop() {
     Serial.println("Button pressed!");
 
     display.clearDisplay();
-    display.setCursor(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 2);
+    display.setCursor(SCREEN_WIDTH / 6, SCREEN_HEIGHT / 2);
     display.print("Button pressed!");
     display.display();
 
@@ -186,7 +186,7 @@ void loop() {
     Serial.println(" mseg");
 
     display.clearDisplay();
-    display.setCursor(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 2);
+    display.setCursor(SCREEN_WIDTH / 6, SCREEN_HEIGHT / 2);
     display.print("Button released!");
     display.display();
 
@@ -201,7 +201,7 @@ void loop() {
       Serial.println("Button pressed > 3seg");
 
       display.clearDisplay();
-      display.setCursor(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 2);
+      display.setCursor(1, SCREEN_HEIGHT / 2);
       display.print("Button pressed > 3seg");
       display.display();
 
@@ -211,4 +211,18 @@ void loop() {
 
 
 
+}
+
+void alapantalla(String dir, int cont){
+      currentDir = dir;
+      flagCLK = LOW;
+      Serial.print("Direction: ");
+      Serial.print(currentDir);
+      Serial.print(" | Counter: ");
+      Serial.println(cont);
+
+      display.clearDisplay();
+      display.setCursor(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+      display.print(cont);
+      display.display();
 }
