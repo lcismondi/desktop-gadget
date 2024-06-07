@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Luciano Cismondi",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-c3-devkitm-1",
+      "id": "esp",
+      "top": 20.7,
+      "left": 3.78,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 22.34,
+      "left": -162.97,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-ky-040",
+      "id": "encoder1",
+      "top": 33.9,
+      "left": 182.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -56.84, "left": -124.8, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 28.8, "left": -202.2, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": -37.64, "left": 134.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": -28.8, "left": 210.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "oled1:VCC", "vcc1:VCC", "red", [ "v0" ] ],
+    [ "oled1:GND", "gnd1:GND", "black", [ "v-28.8", "h-9.6" ] ],
+    [ "encoder1:GND", "gnd2:GND", "black", [ "h0", "v-106.4", "h48" ] ],
+    [ "encoder1:VCC", "vcc2:VCC", "red", [ "h0" ] ],
+    [ "esp:9", "oled1:SCL", "green", [ "h-35.98", "v-124.8", "h-77.1" ] ],
+    [ "oled1:SDA", "esp:8", "green", [ "v-19.2", "h76.87", "v105.6" ] ],
+    [ "esp:5", "encoder1:SW", "green", [ "h0" ] ],
+    [ "esp:6", "encoder1:DT", "green", [ "h0" ] ],
+    [ "esp:7", "encoder1:CLK", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
