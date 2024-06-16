@@ -45,8 +45,8 @@ Con Digit, los usuarios pueden disfrutar de una asistencia inteligente y adaptat
 
 ## Route map
 Cada versión representa un hito clave en la evolución del producto, desde el diseño conceptual hasta la integración avanzada de inteligencia artificial y más allá.
-* V0: Diseño conceptual (MVP)
-* V1: Presentación como producto
+* V0: Diseño conceptual (POC)
+* V1: Presentación como producto (MVP)
 * V2: API
 * V3: OS
 * V4: IA
