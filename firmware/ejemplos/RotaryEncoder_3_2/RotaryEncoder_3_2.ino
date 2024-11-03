@@ -1,4 +1,4 @@
-// Rotary Encoder Inputs injectora
+// Rotary Encoder Inputs
 /*
 Implementa:
   * Press
@@ -6,6 +6,7 @@ Implementa:
   * Longpress
   * Scroll simple
   * Scroll press
+  * Doble click
 
 */
 
@@ -37,13 +38,15 @@ int currentStateCLK, currentStateDT;
 int lastStateCLK;
 int lastStateBTN = HIGH;
 int lastStateDT;
+int dobleClickTime = 150;
+int dobleClickStage = 0;
 
 String currentDir = "";
 
 unsigned long lastButtonPress = 0;
-unsigned long lastButtonRelease = 0;  //Antirebote botón al soltar
-unsigned long countLongPress = 0;     //Tiempo botón presionado
-
+unsigned long lastButtonRelease = 0;                            //Antirebote botón al soltar
+unsigned long countLongPress = 0;                               //Tiempo botón presionado
+unsigned long dobleClickSt1, dobleClickSt2, dobleClickSt3 = 0;  //Transición del doble click
 
 void setup() {
 
@@ -189,24 +192,114 @@ void loop() {
   // Remember last button state
   lastStateBTN = btnState;
 
+
+  //**********************
   //Efectos sobre el botón
+  //**********************
+
   if (flagPress == HIGH) {
     flagPress = LOW;
-    Serial.println("Button pressed!");
+    //----------------------------------
+    //Serial.println("Button pressed!");
+    //----------------------------------
+    if (dobleClickStage == 0) {
+
+      dobleClickStage = 1;
+      //Serial.print(dobleClickStage);
+      dobleClickSt1 = millis();
+      //Serial.print(" | ");
+      //Serial.println("Inicio doble click");
+
+    } else if (dobleClickStage == 2) {
+
+      dobleClickSt3 = millis();
+      dobleClickSt2 = dobleClickSt3 - dobleClickSt2;
+
+      if (dobleClickSt2 > dobleClickTime) {
+
+        Serial.println("Simple press");
+        dobleClickStage = 0;
+
+      } else {
+
+        dobleClickStage = 3;
+        //Serial.print(dobleClickStage);
+        //Serial.print(" | ");
+        //Serial.print(dobleClickSt2);
+        //Serial.println("mseg");
+      }
+
+    } else {
+      Serial.print(dobleClickStage);
+      Serial.println(" | Error 1");
+      dobleClickStage = 0;
+    }
   }
   if (flagRelease == HIGH && activeLongpress == LOW) {
     flagRelease = LOW;
-    Serial.print("Button released! ");
-    Serial.print(millis() - countLongPress);
-    Serial.println(" mseg");
+    //----------------------------------
+    //Serial.print("Button released!");
+    //----------------------------------
+    //Serial.print(millis() - countLongPress);
+    //Serial.println(" mseg");
+
+    if (dobleClickStage == 1) {
+
+      dobleClickSt2 = millis();
+      dobleClickSt1 = dobleClickSt2 - dobleClickSt1;
+
+      if (dobleClickSt1 > dobleClickTime) {
+
+        Serial.println("Simple press");
+        dobleClickStage = 0;
+
+      } else {
+
+        dobleClickStage = 2;
+        //Serial.print(dobleClickStage);
+        //Serial.print(" | ");
+        //Serial.print(dobleClickSt1);
+        //Serial.println("mseg");
+      }
+
+    } else if (dobleClickStage == 3) {
+
+      dobleClickSt3 = millis() - dobleClickSt3;
+
+      if (dobleClickSt3 > dobleClickTime) {
+
+        Serial.println("Simple press");
+        dobleClickStage = 0;
+
+      } else {
+
+        dobleClickStage = 4;
+        //Serial.print(dobleClickStage);
+        //Serial.print(" | ");
+        //Serial.print(dobleClickSt3);
+        //Serial.println("mseg");
+        Serial.println("Doble press");
+        dobleClickStage = 0;
+      }
+
+    } else {
+      Serial.print(dobleClickStage);
+      Serial.println(" | Error 2");
+      dobleClickStage = 0;
+    }
+
   } else {
     flagRelease = LOW;
   }
+  //----------------------------------
+  //Long press
+  //----------------------------------
   if (flagLongpress == HIGH) {
     if (millis() - countLongPress > 3000) {
       flagLongpress = LOW;
       activeLongpress = HIGH;
       Serial.println("Button pressed > 3seg");
+      dobleClickStage = 0;
     }
   }
 }
